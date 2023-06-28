@@ -5,7 +5,11 @@ const rutausuario = require('./rutas/usuario')
 const cors = require('cors')
 //Importar body parser
 const bodyParser = require ('body-parser')
-const PORT =process.env.PORT || 3799
+const conn = require('express-myconnection')
+
+
+const PORT = process.env.PORT || 5001
+
 
 app.use(cors())
 app.use(bodyParser.json())

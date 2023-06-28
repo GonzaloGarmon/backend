@@ -1,10 +1,21 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://mongo:g4cfGDDGIuioy4xeApSp@containers-us-west-186.railway.app:6983");
 
 
-const objetobd = mongoose.connection 
+const { URL } = process.env
 
-objetobd.on('connected', ()=>{console.log('conexion correcta a mongoDB')})
-objetobd.on('error', ()=>{console.log('Error en la conexion a mongoDB')})
+const connectDB = async () => {
+  try {
+    await mongoose.connect(URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
 
-module.exports = mongoose
+    console.log('MongoDB Connected...');
+  } catch (err) {
+    console.error(err.message);
+    // Exit process with failure
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
