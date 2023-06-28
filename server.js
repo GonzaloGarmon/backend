@@ -5,7 +5,7 @@ const rutausuario = require('./rutas/usuario')
 const cors = require('cors')
 //Importar body parser
 const bodyParser = require ('body-parser')
-
+const PORT =process.env.PORT || 3799
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -17,8 +17,8 @@ app.get('/', (req,res) =>{
     res.end('bienvenidos al sv backend')
 })
 
-app.listen(5000, function(){
-    console.log('el servidor esta correindo correctamente')
+app.listen(PORT, () => {
+    console.log(`Tu server esta listo en el puerto ${PORT}`)
 })
 
 

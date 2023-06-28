@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/backend');
+mongoose.connect("mongodb://mongo:g4cfGDDGIuioy4xeApSp@containers-us-west-186.railway.app:6983");
 
 
 const objetobd = mongoose.connection 
